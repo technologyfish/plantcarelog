@@ -22,3 +22,6 @@ unpackage/
 *.log
 .phpunit.result.cache
 .phpunit.cache/
+
+# Taro/SWC 编译缓存
+.swc/
