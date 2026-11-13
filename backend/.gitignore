@@ -1,4 +1,4 @@
-/vendor
+# /vendor 临时提交用于服务器部署，部署完成后改回
 /.idea
 Homestead.json
 Homestead.yaml
