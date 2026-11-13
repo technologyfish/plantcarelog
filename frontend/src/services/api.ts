@@ -1,6 +1,6 @@
 import Taro from '@tarojs/taro'
 
-const BASE_URL = 'http://localhost:8000/api'
+const BASE_URL = 'http://8.147.235.56/api'
 
 interface RequestOptions {
   params?: Record<string, any>
