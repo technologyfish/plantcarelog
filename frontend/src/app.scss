@@ -1,0 +1,41 @@
+// 全局样式
+page {
+  background: linear-gradient(180deg, #E8F5E9 0%, #FFFFFF 30%);
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+// 主题色
+$primary-color: #4CAF50;
+$primary-light: #81C784;
+$primary-dark: #388E3C;
+$text-color: #333333;
+$text-secondary: #666666;
+$text-hint: #999999;
+$border-color: #E0E0E0;
+$background-color: #F5F5F5;
+$card-background: rgba(255, 255, 255, 0.9);
+
+// 通用样式
+.card {
+  background: $card-background;
+  border-radius: 24rpx;
+  padding: 24rpx;
+  margin: 24rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.05);
+}
+
+.btn-primary {
+  background: $primary-color;
+  color: #ffffff;
+  border-radius: 48rpx;
+  padding: 24rpx 48rpx;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: 500;
+}
+
+.page-container {
+  padding: 24rpx;
+  padding-bottom: 180rpx;
+}

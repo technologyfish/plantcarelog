@@ -1,0 +1,272 @@
+.category-page {
+  min-height: 100vh;
+  padding: 24rpx;
+  padding-top: 110px;
+  padding-bottom: 220rpx;
+  background: linear-gradient(180deg, #E8F5E9 0%, #F0F9F4 30%, #F7FBF7 100%);
+
+  /* ===== 左上角返回按钮 ===== */
+  .back-btn {
+    position: absolute;
+    top: 112px;
+    left: 32rpx;
+    width: 68rpx;
+    height: 68rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+
+    .back-icon {
+      width: 44rpx;
+      height: 44rpx;
+    }
+  }
+
+  /* ===== 头部：深绿标题居中 ===== */
+  .header {
+    text-align: center;
+    padding: 32rpx 0 40rpx;
+
+    .title {
+      font-size: 44rpx;
+      font-weight: bold;
+      color: #2E7D32; /* 设计稿：深绿标题 */
+      display: block;
+      margin-bottom: 12rpx;
+    }
+
+    .subtitle {
+      font-size: 24rpx;
+      color: #999;
+    }
+  }
+
+  /* ===== 分类列表 ===== */
+  .category-list {
+    .category-item {
+      display: flex;
+      align-items: center;
+      background: #ffffff;
+      border-radius: 24rpx;
+      padding: 24rpx;
+      margin-bottom: 20rpx;
+      box-shadow: 0 4rpx 16rpx rgba(46, 125, 50, 0.06);
+
+      /* 拖拽手柄：2×3 六点 */
+      .drag-handle {
+        display: flex;
+        flex-direction: column;
+        gap: 8rpx;
+        margin-right: 20rpx;
+        padding: 6rpx 4rpx;
+
+        .dot-row {
+          display: flex;
+          gap: 10rpx;
+
+          .dot {
+            width: 8rpx;
+            height: 8rpx;
+            background: #C5C5C5;
+            border-radius: 50%;
+          }
+        }
+      }
+
+      /* 分类缩略图 */
+      .category-image {
+        width: 100rpx;
+        height: 100rpx;
+        border-radius: 16rpx;
+        margin-right: 20rpx;
+        flex-shrink: 0;
+
+        &.emoji-box {
+          background: #E8F5E9;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .emoji {
+            font-size: 52rpx;
+            line-height: 1;
+          }
+        }
+      }
+
+      .category-info {
+        flex: 1;
+        overflow: hidden;
+
+        .category-name {
+          font-size: 30rpx;
+          color: #2E7D32; /* 设计稿：深绿分类名 */
+          font-weight: bold;
+          display: block;
+          margin-bottom: 8rpx;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+
+        .category-count {
+          display: flex;
+          align-items: center;
+          font-size: 24rpx;
+          color: #81C784;
+
+          .count-icon {
+            width: 26rpx;
+            height: 26rpx;
+            margin-right: 8rpx;
+          }
+        }
+      }
+
+      /* 操作按钮：浅绿圆底白铅笔 / 浅红圆底红叉 */
+      .category-actions {
+        display: flex;
+        gap: 16rpx;
+        flex-shrink: 0;
+
+        .action-btn {
+          width: 68rpx;
+          height: 68rpx;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &.edit {
+            background: #E8F5E9;
+
+            .edit-icon {
+              color: #4CAF50;
+              font-size: 30rpx;
+              line-height: 1;
+            }
+          }
+
+          &.delete {
+            background: #FFEBEE;
+
+            .delete-icon {
+              color: #E53935;
+              font-size: 28rpx;
+              line-height: 1;
+            }
+          }
+        }
+      }
+    }
+
+    /* 空状态 */
+    .empty-tip {
+      background: #ffffff;
+      border-radius: 20rpx;
+      padding: 60rpx 24rpx;
+      display: flex;
+      justify-content: center;
+      box-shadow: 0 4rpx 16rpx rgba(46, 125, 50, 0.06);
+
+      .empty-text {
+        font-size: 24rpx;
+        color: #999;
+      }
+    }
+  }
+
+  /* ===== 底部创建按钮：宽大绿色胶囊 ===== */
+  .add-btn {
+    position: fixed;
+    bottom: 60rpx;
+    left: 48rpx;
+    right: 48rpx;
+    background: linear-gradient(135deg, #66BB6A, #4CAF50);
+    color: #fff;
+    padding: 30rpx;
+    border-radius: 48rpx;
+    text-align: center;
+    font-size: 32rpx;
+    font-weight: 500;
+    box-shadow: 0 8rpx 24rpx rgba(76, 175, 80, 0.35);
+    z-index: 10;
+  }
+
+  /* ===== 新建 / 编辑弹窗 ===== */
+  .modal-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+
+    .modal-content {
+      width: 600rpx;
+      background: #fff;
+      border-radius: 24rpx;
+      padding: 48rpx;
+
+      .modal-title {
+        font-size: 36rpx;
+        font-weight: bold;
+        color: #2E7D32;
+        text-align: center;
+        display: block;
+        margin-bottom: 40rpx;
+      }
+
+      .modal-input {
+        display: flex;
+        align-items: center;
+        background: #F5F9F5;
+        border: 2rpx solid #E8F5E9;
+        border-radius: 48rpx;
+        padding: 24rpx 32rpx;
+        margin-bottom: 48rpx;
+
+        .input-icon {
+          width: 40rpx;
+          height: 40rpx;
+          margin-right: 16rpx;
+        }
+
+        .input {
+          flex: 1;
+          font-size: 28rpx;
+          color: #333;
+        }
+      }
+
+      .modal-actions {
+        display: flex;
+        gap: 24rpx;
+
+        .btn {
+          flex: 1;
+          padding: 26rpx;
+          border-radius: 48rpx;
+          text-align: center;
+          font-size: 30rpx;
+          font-weight: 500;
+
+          &.cancel {
+            background: #F5F5F5;
+            color: #666;
+          }
+
+          &.confirm {
+            background: linear-gradient(135deg, #66BB6A, #4CAF50);
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}

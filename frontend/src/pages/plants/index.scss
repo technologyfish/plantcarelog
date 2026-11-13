@@ -1,0 +1,293 @@
+.plants-page {
+  min-height: 100vh;
+  padding: 0 24rpx;
+  padding-bottom: 200rpx;
+  background: linear-gradient(180deg, #E8F5E9 0%, #F0F9F4 30%, #F7FBF7 100%);
+
+  /* ===== 头部 ===== */
+  .header {
+    position: relative;
+    padding: 110px 8rpx 12rpx;
+    overflow: hidden;
+
+    .header-left {
+      display: flex;
+      align-items: center;
+
+      .header-icon {
+        width: 72rpx;
+        height: 72rpx;
+        margin-right: 16rpx;
+      }
+
+      .header-title {
+        .title {
+          font-size: 36rpx; /* 与首页顶部标题字号一致 */
+          font-weight: bold;
+          color: #2E7D32; /* 设计稿：绿色标题 */
+          display: block;
+          line-height: 1.2;
+        }
+
+        .subtitle {
+          font-size: 24rpx;
+          color: #999; /* 设计稿：灰色副标题 */
+          display: block;
+          margin-top: 4rpx;
+        }
+      }
+    }
+
+    /* 右上角淡叶纹装饰（设计稿） */
+    .deco-leaf {
+      position: absolute;
+      pointer-events: none;
+
+      &.deco-1 {
+        width: 180rpx;
+        height: 180rpx;
+        top: 20px;
+        right: -40rpx;
+        opacity: 0.16;
+        transform: rotate(35deg);
+      }
+
+      &.deco-2 {
+        width: 110rpx;
+        height: 110rpx;
+        top: 120px;
+        right: 100rpx;
+        opacity: 0.1;
+        transform: rotate(-15deg);
+      }
+    }
+  }
+
+  /* ===== 分类卡片：圆角卡 + 选中绿描边 ===== */
+  .category-scroll {
+    width: 100%;
+    white-space: nowrap;
+  }
+
+  .category-tabs {
+    display: inline-flex;
+    gap: 16rpx;
+    padding: 16rpx 8rpx 24rpx;
+
+    .tab-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20rpx 24rpx;
+      background: #ffffff;
+      border: 3rpx solid transparent;
+      border-radius: 20rpx;
+      min-width: 130rpx;
+      flex-shrink: 0;
+      box-shadow: 0 4rpx 16rpx rgba(46, 125, 50, 0.06);
+      transition: all 0.2s;
+
+      &.active {
+        /* 设计稿：绿色描边 + 浅绿底 */
+        border-color: #4CAF50;
+        background: #E8F5E9;
+
+        .tab-text {
+          color: #2E7D32;
+          font-weight: bold;
+        }
+      }
+
+      /* 自定义分类：虚线卡 */
+      &.add-tab {
+        background: transparent;
+        border: 3rpx dashed #A5D6A7;
+        box-shadow: none;
+
+        .tab-plus {
+          font-size: 40rpx;
+          color: #4CAF50;
+          line-height: 1;
+          margin-bottom: 6rpx;
+        }
+
+        .tab-text {
+          color: #66BB6A;
+        }
+      }
+
+      .tab-icon {
+        width: 48rpx;
+        height: 48rpx;
+        margin-bottom: 8rpx;
+        border-radius: 50%;
+      }
+
+      .tab-emoji {
+        font-size: 40rpx;
+        line-height: 48rpx;
+        height: 48rpx;
+        margin-bottom: 8rpx;
+      }
+
+      .tab-text {
+        font-size: 24rpx;
+        color: #333;
+        font-weight: 500;
+      }
+
+      .tab-count {
+        font-size: 22rpx;
+        color: #999;
+        margin-top: 4rpx;
+      }
+    }
+  }
+
+  /* ===== 搜索栏：胶囊形 ===== */
+  .search-bar {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 48rpx;
+    padding: 18rpx 32rpx;
+    margin: 0 8rpx 24rpx;
+    box-shadow: 0 4rpx 16rpx rgba(46, 125, 50, 0.06);
+
+    /* 左侧搜索图标（icon-search.png） */
+    .search-icon {
+      width: 32rpx;
+      height: 32rpx;
+      margin-right: 16rpx;
+      flex-shrink: 0;
+    }
+
+    .search-input {
+      flex: 1;
+      font-size: 28rpx;
+      color: #333;
+    }
+  }
+
+  /* ===== 植物卡片：2 列网格 ===== */
+  .plant-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20rpx;
+    padding: 0 8rpx;
+
+    .plant-card {
+      width: calc(50% - 10rpx);
+      background: #ffffff;
+      border-radius: 24rpx;
+      overflow: hidden;
+      box-shadow: 0 4rpx 20rpx rgba(46, 125, 50, 0.08);
+
+      .plant-image {
+        width: 100%;
+        height: 260rpx;
+        display: block;
+        background: #E8F5E9;
+      }
+
+      .plant-info {
+        padding: 20rpx;
+
+        .plant-name-row {
+          display: flex;
+          align-items: center;
+          margin-bottom: 14rpx;
+          gap: 8rpx;
+
+          .plant-leaf-icon {
+            width: 28rpx;
+            height: 28rpx;
+            flex-shrink: 0;
+          }
+
+          .plant-name {
+            font-size: 28rpx;
+            font-weight: bold;
+            color: #333;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            max-width: 45%;
+          }
+
+          /* 灰色胶囊分类标签（设计稿） */
+          .plant-category {
+            font-size: 20rpx;
+            color: #888;
+            background: #F2F2F2;
+            padding: 4rpx 14rpx;
+            border-radius: 20rpx;
+            flex-shrink: 0;
+          }
+
+          /* 名称行右侧 chevron（设计稿） */
+          .arrow {
+            margin-left: auto;
+            font-size: 32rpx;
+            color: #C8E6C9;
+            line-height: 1;
+            font-weight: 300;
+          }
+        }
+
+        .plant-status-row {
+          display: flex;
+          align-items: center;
+          gap: 8rpx;
+
+          .water-icon {
+            width: 28rpx;
+            height: 28rpx;
+          }
+
+          .water-text {
+            font-size: 22rpx;
+            color: #9AA8B5;
+
+            &.need {
+              color: #2196F3;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* ===== 空状态 ===== */
+  .empty-tip {
+    background: #ffffff;
+    border-radius: 20rpx;
+    padding: 60rpx 24rpx;
+    display: flex;
+    justify-content: center;
+    margin: 0 8rpx;
+    box-shadow: 0 4rpx 16rpx rgba(46, 125, 50, 0.06);
+
+    .empty-text {
+      font-size: 24rpx;
+      color: #999;
+    }
+  }
+
+  /* ===== 添加按钮 ===== */
+  .add-btn {
+    position: fixed;
+    bottom: 120rpx; /* 往下移，靠近底部 tab 栏 */
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #66BB6A, #4CAF50);
+    color: #fff;
+    padding: 24rpx 80rpx;
+    border-radius: 48rpx;
+    font-size: 32rpx;
+    font-weight: 500;
+    box-shadow: 0 8rpx 24rpx rgba(76, 175, 80, 0.35);
+    z-index: 10;
+  }
+}

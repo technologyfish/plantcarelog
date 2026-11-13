@@ -1,0 +1,24 @@
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+
+# 依赖包（体积大，可通过包管理器恢复）
+node_modules/
+vendor/
+
+# 构建产物
+dist/
+unpackage/
+
+# 环境变量（含数据库密码等敏感信息，切勿提交）
+.env
+.env.*
+!.env.example
+
+# 日志与缓存
+*.log
+.phpunit.result.cache
+.phpunit.cache/

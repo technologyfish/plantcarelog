@@ -1,0 +1,305 @@
+.index-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #E8F5E9 0%, #F5FFF5 100%);
+  padding-bottom: 120px;
+
+  /* 第一部分：顶部 Logo + Slogan */
+  .header-section {
+    padding: 110px 32px 0;
+    
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      
+      .logo {
+        width: 80px;
+        height: 80px;
+        border-radius: 16px;
+      }
+      
+      .slogan-container {
+        display: flex;
+        flex-direction: column;
+        
+        .title {
+          font-size: 36px;
+          font-weight: bold;
+          color: #2E7D32;
+        }
+        
+        .subtitle {
+          font-size: 24px;
+          color: #66BB6A;
+          margin-top: 4px;
+        }
+      }
+    }
+  }
+
+  /* 第二部分：Banner 图片 */
+  .banner-section {
+    padding: 24px 32px;
+    
+    .banner-image {
+      width: 100%;
+      border-radius: 20px;
+    }
+  }
+
+  /* 第三部分：日历 */
+  .calendar-section {
+    padding: 0 32px;
+    
+    .calendar-card {
+      background: #FFFFFF;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      
+      .calendar-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 24px;
+        
+        .month {
+          font-size: 36px;
+          font-weight: bold;
+          color: #2E7D32;
+        }
+        
+        .expand-btn {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          padding: 8px 20px;
+          background: rgba(76, 175, 80, 0.1);
+          border-radius: 30px;
+          
+          .expand-icon {
+            color: #4CAF50;
+            font-size: 24px;
+          }
+          
+          .expand-text {
+            color: #4CAF50;
+            font-size: 24px;
+          }
+        }
+      }
+      
+      .week-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 16px;
+        
+        .week-name {
+          flex: 1;
+          text-align: center;
+          font-size: 24px;
+          color: #999;
+        }
+      }
+      
+      .week-days,
+      .month-days {
+        display: flex;
+        flex-wrap: wrap;
+        
+        .day-item {
+          width: calc(100% / 7);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding: 12px 0;
+          box-sizing: border-box;
+          
+          &.empty {
+            background: transparent;
+          }
+          
+          &.today {
+            .day-number {
+              width: 60px;
+              height: 60px;
+              line-height: 60px;
+              text-align: center;
+              background: #4CAF50;
+              color: #fff;
+              border-radius: 16px;
+              font-weight: bold;
+            }
+            
+            .today-dot {
+              width: 8px;
+              height: 8px;
+              background: #fff;
+              border-radius: 50%;
+              margin-top: 6px;
+            }
+          }
+          
+          .day-number {
+            font-size: 28px;
+            color: #333;
+          }
+        }
+      }
+      
+      .month-days {
+        .day-item {
+          min-height: 80px;
+        }
+      }
+    }
+  }
+
+  /* 第四部分：我的植物 */
+  .plants-section {
+    padding: 32px;
+    
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      
+      .section-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        
+        .leaf-icon {
+          width: 40px;
+          height: 40px;
+        }
+        
+        .title-text {
+          font-size: 32px;
+          font-weight: bold;
+          color: #2E7D32;
+        }
+      }
+      
+      .view-all {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 26px;
+        color: #999;
+
+        .view-all-arrow {
+          width: 26px;
+          height: 26px;
+        }
+      }
+    }
+    
+    .plant-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      
+      .plant-card {
+        /* 固定半宽：一行 2 个，只有 1 株时也不撑满整行 */
+        width: calc(50% - 10px);
+        flex: none;
+        background: #FFFFFF;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        
+        .plant-image-wrapper {
+          width: 100%;
+          height: 260px; /* 与植物列表页卡片图片高度一致 */
+          overflow: hidden;
+          
+          .plant-image {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        
+        .plant-info {
+          padding: 16px;
+          
+          .plant-name-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            
+            .plant-leaf-icon {
+              width: 28px;
+              height: 28px;
+            }
+            
+            .plant-name {
+              font-size: 28px;
+              font-weight: bold;
+              color: #4CAF50;
+              flex: 1;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+            }
+            
+            /* 名称行右侧箭头（icon-arrow-right.png） */
+            .name-arrow {
+              width: 26px;
+              height: 26px;
+              flex-shrink: 0;
+              opacity: 0.6;
+            }
+          }
+          
+          .plant-days {
+            font-size: 22px;
+            color: #999;
+            margin-top: 8px;
+          }
+          
+          .plant-status-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 12px;
+
+            /* 状态胶囊（设计稿：浅绿/浅灰） */
+            .water-pill {
+              padding: 8px 16px;
+              border-radius: 24px;
+              font-size: 22px;
+              
+              &.need {
+                background: #E8F5E9;
+                color: #4CAF50;
+              }
+              
+              &.no-need {
+                background: #F5F5F5;
+                color: #999;
+              }
+            }
+
+            /* 右侧水滴：需浇水为蓝色实色，无需浇水置灰 */
+            .water-icon {
+              width: 28px;
+              height: 28px;
+
+              &:not(.need) {
+                filter: grayscale(1);
+                opacity: 0.45;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .safe-area-bottom {
+    height: 120px;
+  }
+}
